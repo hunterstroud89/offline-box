@@ -1,0 +1,1013 @@
+:root {
+  --bg: #121212;
+  --fg: #d0d0d0;
+  --muted: #808080;
+  --line: #2a2a2a;
+  --panel: #242424;
+  --accent: #c0c0c0;
+  --accent-rgb: 192, 192, 192;
+  --tile-bg: var(--panel);
+  --tile-fg: var(--fg);
+  --danger: #ff6b6b;
+  --success: #51cf66;
+  --warning: #ffd43b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 40px 24px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: var(--fg);
+  text-align: left;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start;
+  margin-bottom: 8px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Place header action buttons to the far right of the section header */
+.section-header .header-actions { margin-left: auto; }
+
+/* Save buttons in section headers */
+.section-save-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.section-save-btn:hover {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+/* Save buttons positioned outside cards */
+.external-save-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+/* When admin-controls contains only save buttons, display them outside the card */
+.admin-controls.save-only {
+  margin-top: 16px;
+  margin-bottom: 0;
+  padding-top: 0;
+  border-top: none;
+  display: flex;
+  justify-content: flex-end;
+  background: transparent;
+}
+
+/* Move save buttons outside cards automatically */
+.section {
+  margin-bottom: 40px;
+}
+
+.section:has(.admin-controls) .card {
+  margin-bottom: 0;
+}
+
+.section .card .admin-controls {
+  margin-top: 16px;
+  margin-left: 0;
+  margin-right: 0;
+  padding-top: 0;
+  border-top: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.back-link,
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  transition: all 0.12s ease;
+  cursor: pointer;
+}
+
+.back-link {
+  margin-right: 10px;
+  transform: translateY(-4px);
+}
+
+.back-link svg,
+.icon-btn svg {
+  display: block;
+}
+
+.back-link:hover,
+.icon-btn:hover {
+  color: var(--accent);
+}
+
+/* Hero card styling */
+.hero-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Hero content layout */
+.hero-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+}
+
+.hero-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent; /* transparent, subtle stroke only */
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  color: var(--fg);
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-text h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.hero-text p {
+  margin: 0 0 8px 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Card styling */
+.card {
+  background: var(--panel);
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 22px;
+  border: 1px solid var(--line);
+}
+
+/* Admin List Styles */
+.admin-list {
+  margin-top: 12px;
+}
+
+.admin-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+
+.drag-handle {
+  width: 36px; /* compact hit area, keep row spacing stable */
+  height: 36px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.22);
+  background: transparent;
+  border: none;
+  cursor: grab;
+}
+.drag-handle svg { width: 20px; height: 20px; }
+.drag-handle:active { cursor: grabbing; }
+
+/* Drag-and-drop feedback */
+.admin-item.dragging { 
+  opacity: 0.5; 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); 
+}
+.admin-item.drag-over { 
+  border-top: 2px solid var(--accent); 
+}
+
+.admin-item:last-child {
+  border-bottom: none;
+}
+
+.admin-separator {
+  height: 1px;
+  background: rgba(255,255,255,0.06); /* slightly brighter single line */
+  margin: 8px 0;
+  border-radius: 1px;
+}
+
+.admin-item.no-border-bottom {
+  border-bottom: none;
+}
+
+.admin-show-hidden {
+  display: flex;
+  justify-content: flex-end; /* right-align the toggle */
+  padding: 8px 0;
+}
+
+.show-hidden-btn {
+  /* force text-only appearance (override .btn-small) */
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--muted) !important;
+  padding: 6px 8px; /* keep a small hit area */
+  border-radius: 0 !important;
+  cursor: pointer;
+  transition: color 0.12s ease;
+}
+
+.show-hidden-btn:hover { color: var(--fg); }
+
+.admin-icon {
+  width: 28px;
+  height: 28px;
+  padding: 4px; /* inner SVG will sit ~20x20 */
+  box-sizing: border-box;
+  object-fit: contain;
+  border-radius: 0; /* match home sections (no rounded background) */
+  background: transparent;
+  border: none;
+  flex-shrink: 0;
+}
+
+/* Ensure inline SVGs inside admin-icon are a consistent size */
+.admin-icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.admin-info {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+}
+
+.admin-name,
+.admin-url {
+  cursor: pointer;
+}
+
+.admin-name {
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.admin-url {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.admin-name-input,
+.admin-url-input,
+.admin-icon-input {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--fg);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+  min-width: 0;
+}
+
+.admin-name-input {
+  font-weight: 500;
+  flex: 1;
+  min-width: 120px;
+}
+
+.admin-url-input,
+.admin-icon-input {
+  font-size: 12px;
+  color: var(--muted);
+  flex: 1;
+  min-width: 150px;
+}
+
+.admin-name-input:not([readonly]):focus,
+.admin-url-input:not([readonly]):focus,
+.admin-icon-input:not([readonly]):focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--bg);
+}
+
+.admin-name-input[readonly],
+.admin-url-input[readonly],
+.admin-icon-input[readonly] {
+  cursor: default;
+}
+
+.admin-folder-select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--panel);
+  color: var(--fg);
+  font-size: 13px;
+  margin: 4px 0;
+}
+
+.admin-folder-select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.admin-folder-select option {
+  background: var(--panel);
+  color: var(--fg);
+}
+
+/* Hardcoded URL Checkbox */
+.hardcoded-url-checkbox {
+  margin: 4px 0;
+}
+
+.hardcoded-url-checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.hardcoded-url-checkbox input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.hardcoded-url-checkbox span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Toggle Switch */
+.visibility-toggle {
+  width: 36px;
+  height: 20px;
+  background: var(--line);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.visibility-toggle:hover {
+  background: var(--muted);
+}
+
+.visibility-toggle.active {
+  background: #51cf66;
+}
+
+.toggle-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--fg);
+  transition: all 0.3s ease;
+  position: absolute;
+  left: 2px;
+}
+
+.visibility-toggle.active .toggle-indicator {
+  transform: translateX(16px);
+}
+
+/* Button States */
+.btn-primary:disabled {
+  background: var(--line);
+  border-color: var(--line);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+.btn-primary:not(:disabled) {
+  background: var(--fg);
+  border-color: var(--fg);
+  color: var(--bg);
+  cursor: pointer;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Button Styles */
+.btn-small {
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--fg);
+  text-decoration: none;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-small:hover {
+  background: var(--bg);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-icon {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.btn-danger {
+  color: var(--danger) !important;
+  border-color: var(--danger) !important;
+}
+
+.btn-danger:hover {
+  background: var(--danger) !important;
+  color: var(--bg) !important;
+}
+
+.btn-primary {
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: not-allowed;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:not(:disabled) {
+  background: var(--fg);
+  border-color: var(--fg);
+  color: var(--bg);
+  cursor: pointer;
+}
+
+.btn-primary:not(:disabled):hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-secondary {
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--fg);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--bg);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.admin-controls {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+/* Info Grid Styles */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.info-item {
+  padding: 12px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.info-label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-weight: 500;
+  color: var(--fg);
+  word-break: break-all;
+}
+
+/* Background Selection */
+.background-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+  margin-top: 16px;
+}
+
+.background-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.background-option:hover {
+  transform: translateY(-2px);
+}
+
+.background-option.selected .background-preview {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.2);
+}
+
+.background-preview {
+  width: 120px;
+  height: 80px;
+  border-radius: 8px;
+  border: 2px solid var(--line);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.default-background {
+  background: linear-gradient(135deg, var(--bg) 0%, #1a1a1a 100%);
+  position: relative;
+}
+
+.default-indicator {
+  background: rgba(var(--accent-rgb), 0.1);
+  border: 1px solid rgba(var(--accent-rgb), 0.3);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 10px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.background-name {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.background-option.selected .background-name {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Admin Navigation */
+.admin-nav {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--fg);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  text-decoration: none;
+}
+
+.nav-btn:hover {
+  background: var(--line);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.nav-btn svg {
+  flex-shrink: 0;
+}
+
+/* Folders Management */
+.folders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 300px));
+  gap: 12px;
+  margin-top: 12px;
+  justify-content: start;
+}
+
+.folder-item {
+  padding: 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.folder-item.editing {
+  border-color: var(--accent);
+}
+
+.folder-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.folder-info {
+  flex: 1;
+}
+
+.folder-name {
+  font-weight: 500;
+  color: var(--fg);
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.folder-name-text {
+  display: block;
+}
+
+.folder-name-input {
+  background: transparent;
+  border: none;
+  color: var(--fg);
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+  padding: 2px 4px;
+  border-radius: 4px;
+  display: none;
+}
+
+.folder-name-input:focus {
+  outline: none;
+  background: var(--bg);
+  border: 1px solid var(--accent);
+}
+
+.folder-apps {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.folder-count {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.folder-actions {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+
+.folder-item:hover .folder-actions {
+  opacity: 1;
+}
+
+.folder-actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 4px;
+  background: var(--panel);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.12s ease;
+  border: 1px solid var(--line);
+}
+
+.folder-actions button:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.folder-actions .delete-btn:hover {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+/* Services Section */
+.services-container {
+  min-height: 120px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.service-item {
+  padding: 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  position: relative;
+}
+
+.service-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.service-info {
+  flex: 1;
+}
+
+.service-name {
+  font-weight: 500;
+  color: var(--fg);
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.service-description {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.service-port {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.service-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.service-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.service-indicator.running {
+  background: var(--success);
+}
+
+.service-indicator.stopped {
+  background: var(--danger);
+}
+
+.service-text {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.service-text.running {
+  color: var(--success);
+}
+
+.service-text.stopped {
+  color: var(--danger);
+}
+
+.service-actions {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 6px;
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--panel);
+  color: var(--muted);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  border: 1px solid var(--line);
+}
+
+.service-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.service-link svg {
+  color: inherit;
+}
+
+.service-restart-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 24px;
+  padding: 0 8px;
+  background: var(--panel);
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+.service-restart-btn:hover:not(:disabled) {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(var(--accent-rgb), 0.1);
+}
+
+.service-restart-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.service-restart-btn svg {
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.service-restart-btn span {
+  color: inherit;
+  font-size: 12px;
+}
+
+.service-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--line);
+  border-top: 2px solid var(--accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.service-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 40px;
+  color: var(--danger);
+  font-size: 14px;
+  text-align: center;
+}
+
+.service-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}

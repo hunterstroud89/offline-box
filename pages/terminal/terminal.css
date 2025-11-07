@@ -1,0 +1,56 @@
+/* Terminal-specific styles */
+.terminal-container {
+    height: 100vh;
+    width: 100vw;
+    background: #000;
+    overflow: hidden;
+}
+
+/* Dark theme terminal */
+.terminal-dark {
+    background: #000;
+    color: #00ff00;
+}
+
+/* Light theme terminal (optional) */
+.terminal-light {
+    background: #f0f0f0;
+    color: #000;
+}
+
+/* Retro green terminal theme */
+.terminal-retro {
+    background: #001100;
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+/* Matrix theme */
+.terminal-matrix {
+    background: #000;
+    color: #00ff41;
+    text-shadow: 0 0 10px #00ff41;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .terminal-line {
+        font-size: 12px;
+    }
+    
+    .status-bar {
+        font-size: 10px;
+        padding: 3px 5px;
+    }
+    
+    #terminal {
+        padding: 5px;
+    }
+}
+
+/* Print styles (hide terminal when printing) */
+@media print {
+    body {
+        display: none;
+    }
+}

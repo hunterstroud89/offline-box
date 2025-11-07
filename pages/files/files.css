@@ -1,0 +1,465 @@
+:root{
+	--bg:#121212; --fg:#d0d0d0; --muted:#808080; --panel:#242424; --line:#2a2a2a;
+}
+html,body{height:100%;margin:0;font-family:system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;background:var(--bg);color:var(--fg)}
+.container{max-width:900px;margin:0 auto;padding:40px 24px}
+.hero-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px}
+.hero-content{display:flex;align-items:center;justify-content:space-between}
+.hero-left{display:flex;align-items:center;gap:12px}
+.hero-left h3{margin:0;font-size:18px;color:var(--fg)}
+.hero-icon{flex-shrink:0;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent}
+.hero-subtext{margin-top:16px}
+.hero-subtext p{color:var(--muted);margin:0}
+.hero-actions{display:flex;gap:8px}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.hero-btn:hover {
+  background: var(--line);
+  border-color: var(--accent);
+  color: var(--fg);
+}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:22px}
+.list{list-style:none;margin:0;padding:0}
+.list .item{display:flex;justify-content:space-between;align-items:center;padding:8px 6px;border-bottom:1px solid var(--line)}
+.list .item:last-child{border-bottom:none}
+.list .item a{color:var(--fg);text-decoration:none}
+.list .item a:hover{color:var(--accent)}
+.list .item .meta{color:var(--muted);font-size:12px;margin-left:12px}
+.muted{color:var(--muted)}
+
+@media (max-width:640px){.container{padding:20px}}
+
+/* Section header spacing to match other pages */
+.section{margin-bottom:40px}
+.section-header{display:flex;align-items:center;gap:12px;justify-content:flex-start;margin-bottom:8px}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-title{font-size:24px;font-weight:600;margin:0 0 8px 0;color:var(--fg)}
+
+/* Recent row helpers (parity with home.php recent styling) */
+.recent-row{display:flex;align-items:center;justify-content:space-between;padding:8px 6px;border-bottom:1px solid var(--line)}
+.recent-left{display:flex;align-items:center;gap:10px;min-width:0}
+.recent-icon{display:flex;align-items:center;flex-shrink:0}
+.recent-name{font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:40vw;color:var(--fg);text-decoration:none}
+.recent-name:hover{color:var(--accent)}
+.recent-actions{display:flex;align-items:center;gap:8px}
+.recent-meta{color:var(--muted);font-size:13px;margin-left:10px}
+
+/* Hide date column on mobile */
+@media (max-width: 768px) {
+  .recent-meta {
+    display: none;
+  }
+  
+  .recent-name {
+    max-width: 75vw;
+  }
+}
+
+/* Button styles copied from admin.css so Files page uses same visuals */
+.section-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.section-actions a {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+	padding: 10px 16px;
+	border-radius: 8px;
+	background: var(--line);
+	border: 1px solid var(--line);
+	color: var(--muted);
+	font-size: 14px;
+	font-weight: 500;
+	cursor: not-allowed;
+	transition: all 0.2s ease;
+}
+.btn-primary:not(:disabled) {
+	background: var(--fg);
+	border-color: var(--fg);
+	color: var(--bg);
+	cursor: pointer;
+}
+.btn-primary:not(:disabled):hover {
+	background: var(--accent);
+	border-color: var(--accent);
+}
+.btn-secondary {
+	padding: 10px 16px;
+	border-radius: 8px;
+	background: transparent;
+	border: 1px solid var(--line);
+	color: var(--fg);
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+.btn-secondary:hover { background: var(--bg); border-color: var(--accent); color: var(--accent); }
+
+/* Back-link and home-link and icon button styling (parity with admin/chat) */
+.back-link,
+.home-link,
+.icon-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--muted);
+	text-decoration: none;
+	padding: 0;
+	background: transparent;
+	border: none;
+	box-shadow: none;
+	transition: all 0.12s ease;
+	cursor: pointer;
+}
+.back-link { margin-right: 10px; transform: translateY(-4px); }
+.home-link { margin-right: 10px; transform: translateY(-4px); }
+.back-link svg, .home-link img, .icon-btn svg { display: block; }
+.back-link:hover, .home-link:hover, .icon-btn:hover { color: var(--accent); }
+
+/* App grid for file services */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.app-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--fg);
+  transition: all 0.2s ease;
+}
+
+.app-item:hover {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: var(--accent);
+}
+
+.app-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+.app-info h4 {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.app-info p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* File browser styles for files-browse.php */
+.recent-files-section {
+  margin: 24px 0;
+}
+
+.recent-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 0 0 16px 0;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.breadcrumbs a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: var(--fg);
+}
+
+.file-browser-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.header-icon {
+  width: 30px;
+  margin-right: 12px;
+}
+
+.header-name {
+  flex: 1;
+}
+
+.header-size,
+.header-modified {
+  width: 120px;
+  text-align: right;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  transition: background-color 0.2s ease;
+}
+
+.file-item:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.file-item:last-child {
+  border-bottom: none;
+}
+
+.file-icon {
+  width: 30px;
+  margin-right: 12px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.file-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.file-name {
+  font-weight: 500;
+  color: var(--fg);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.file-name:hover {
+  color: var(--accent);
+}
+
+.file-size,
+.file-modified {
+  width: 120px;
+  text-align: right;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.browser-empty {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .app-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Grid layout for recent files (matching home.php favorites) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+  gap: clamp(8px, 2vw, 20px);
+  max-width: 800px;
+  margin: 20px auto 0 auto;
+}
+
+.grid .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--fg);
+  transition: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style for offline box directory links without card class */
+.grid a:not(.card) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--fg);
+  transition: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.grid .card:hover {
+  transform: none;
+}
+
+.grid a:not(.card):hover {
+  transform: none;
+}
+
+.icon {
+  width: 80px;
+  height: 80px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  transition: none;
+  object-fit: contain;
+  font-size: 32px;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.meta {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 2px;
+  opacity: 0.7;
+}
+
+/* Browse all button centered above recents */
+.browse-all-container {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0 24px 0;
+}
+
+.browse-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--fg);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.browse-all-btn:hover {
+  background: var(--line);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Offline Box Files styling */
+.offlinebox-summary {
+  margin-bottom: 16px;
+}
+
+.directory-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.directory-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--fg);
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.directory-item:hover {
+  background: var(--line);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.directory-item svg {
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.directory-item:hover svg {
+  color: var(--accent);
+}

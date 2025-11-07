@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Redirecting...</title>
+  <script>
+  // Simple redirect to home page using relative path
+  window.location.replace('./pages/home/home.php');
+  </script>
+</head>
+<body>
+  <p>Redirecting to <a href="./pages/home/home.php">Home</a>…</p>
+</body>
+</html>
+    function getPath(relativePath) {
+      return basePath + relativePath;
+    }
+    
+    // Navigation
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('[data-view]');
+      if (link) {
+        e.preventDefault();
+        showView(link.dataset.view);
+        location.hash = link.dataset.view === 'home' ? '' : link.dataset.view;
+      }
+    });
+    
+    function showView(viewName) {
+      // Update nav
+      document.querySelectorAll('.nav-link').forEach(function(link) {
+        link.classList.toggle('active', link.dataset.view === viewName);
+      });
+      
+      // Update views
+      document.querySelectorAll('.view').forEach(function(view) {
+        view.classList.toggle('active', view.id === viewName + '-view');
+      });
+    }
+    
+    // Handle initial hash
+    window.addEventListener('load', function() {
+      var hash = location.hash.slice(1);
+      if (hash === 'files') {
+        showView('files');
+      }
+    });
+    
+    // Load apps data
+    fetch(getPath('/data/json/apps.json'))
+      .then(function(res) { return res.json(); })
+      .then(function(apps) {
+        var grid = document.getElementById('apps-grid');
+        apps.forEach(function(app) {
+          if (app.visible === false) return;
+          
+          var card = document.createElement('a');
+          card.className = 'card';
+          card.href = getPath(app.url || '');
+          
+          var icon = document.createElement('img');
+          icon.className = 'icon';
+          icon.src = getPath(app.icon || '');
+          icon.alt = app.label;
+          
+          var label = document.createElement('div');
+          label.className = 'label';
+          label.textContent = app.label;
+          
+          card.appendChild(icon);
+          card.appendChild(label);
+          grid.appendChild(card);
+        });
+      })
+      .catch(function() {
+        document.getElementById('apps-grid').innerHTML = '<p>No apps available</p>';
+      });
+    
+    // Load recent files
+    fetch(getPath('/data/json/recents.json'))
+      .then(function(res) { return res.json(); })
+      .then(function(recents) {
+        var list = document.getElementById('files-list');
+        recents.forEach(function(file) {
+          var item = document.createElement('li');
+          item.className = 'item';
+          
+          var link = document.createElement('a');
+          link.href = getPath(file.path || '');
+          link.textContent = file.name;
+          
+          item.appendChild(link);
+          list.appendChild(item);
+        });
+      })
+      .catch(function() {
+        document.getElementById('files-list').innerHTML = '<li>No recent files</li>';
+      });
+  </script>
+</body>
+</html>

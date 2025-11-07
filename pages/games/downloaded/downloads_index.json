@@ -1,0 +1,32 @@
+{
+    "\/media\/hunter\/OFFLINEBOX\/roms\/snes\/Sailor Moon Another Story.smc": {
+        "downloadKey": "3e5a2ec326c0552612e7e6a44062f07e_Sailor_Moon_Another_Story.smc",
+        "downloadedAt": 1756971131,
+        "lastAccessed": 1759649421,
+        "accessCount": 46,
+        "originalPath": "\/media\/hunter\/OFFLINEBOX\/roms\/snes\/Sailor Moon Another Story.smc",
+        "fileSize": 4194304,
+        "filename": "Sailor Moon Another Story.smc",
+        "console": "snes"
+    },
+    "\/media\/hunter\/OFFLINEBOX\/roms\/gba\/Pokemon Unbound (v2.1.1.1).gba": {
+        "downloadKey": "997295c2b68f37bd2946ac4e6aabf48c_Pokemon_Unbound__v2.1.1.1_.gba",
+        "downloadedAt": 1756972576,
+        "lastAccessed": 1759649421,
+        "accessCount": 50,
+        "originalPath": "\/media\/hunter\/OFFLINEBOX\/roms\/gba\/Pokemon Unbound (v2.1.1.1).gba",
+        "fileSize": 33554432,
+        "filename": "Pokemon Unbound (v2.1.1.1).gba",
+        "console": "gba"
+    },
+    "\/media\/hunter\/OFFLINEBOX\/roms\/gba\/Hamtaro Ham-Ham Heartbreak.gba": {
+        "downloadKey": "22a113fde95e218169366118df26cdcb_Hamtaro_Ham-Ham_Heartbreak.gba",
+        "downloadedAt": 1757008452,
+        "lastAccessed": 1759649421,
+        "accessCount": 28,
+        "originalPath": "\/media\/hunter\/OFFLINEBOX\/roms\/gba\/Hamtaro Ham-Ham Heartbreak.gba",
+        "fileSize": 8388608,
+        "filename": "Hamtaro Ham-Ham Heartbreak.gba",
+        "console": "gba"
+    }
+}

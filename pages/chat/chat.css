@@ -1,0 +1,315 @@
+/* Chat page styles — aligned with home/admin visual language */
+:root {
+  --bg: #121212;
+  --fg: #d0d0d0;
+  --muted: #808080;
+  --line: #2a2a2a;
+  --panel: #242424;
+  --accent: #c0c0c0;
+  --accent-rgb: 192, 192, 192;
+  /* Favorite tile colors (dark theme) */
+  --tile-bg: var(--panel);
+  --tile-fg: var(--fg);
+
+  /* Legacy variable names for compatibility */
+  --card-bg: var(--panel);
+  --text: var(--fg);
+  --danger: #ff6b6b;
+  --success: #51cf66;
+  --warning: #ffd43b;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+/* floating action (keeps parity with home styles when used) */
+.fab {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+  color: var(--fg);
+}
+
+/* section/title helpers */
+.section { margin-bottom: 40px; }
+.section-title { font-size: 24px; font-weight: 600; margin: 0 0 8px 0; color: var(--fg); }
+
+/* Section header (title + actions) — mirror admin.css */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start;
+  margin-bottom: 8px;
+}
+
+/* Back-link styling (match files.css) */
+.back-link {
+  margin-right: 10px;
+  transform: translateY(-4px);
+}
+
+/* Hero card styling (match home.css) */
+.hero-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative; /* allow absolute header actions */
+}
+
+/* header actions inside the hero (top-right) */
+.hero-card .header-actions {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* hero back-link appearance (compact, subtle) */
+.hero-card .back-link {
+  color: var(--fg);
+  background: rgba(255,255,255,0.03);
+  padding: 6px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 13px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Hero content layout */
+.hero-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
+.hero-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent; /* no filled background, just a subtle stroke */
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  color: var(--fg);
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-text h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.hero-text p {
+  margin: 0 0 8px 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* header and action button styles shared with admin/home pages */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+}
+.header-actions { display: flex; gap: 8px; align-items: center; }
+
+.back-link,
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  transition: all 0.12s ease;
+  cursor: pointer;
+}
+.back-link { margin-right: 10px; transform: translateY(-4px); }
+.back-link svg, .icon-btn svg { display: block; }
+.back-link:hover, .icon-btn:hover { color: var(--accent); }
+
+/* buttons */
+.btn-primary {
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: not-allowed;
+  transition: all 0.2s ease;
+}
+.btn-primary:not(:disabled) { background: var(--fg); border-color: var(--fg); color: var(--bg); cursor: pointer; }
+.btn-primary:not(:disabled):hover { background: var(--accent); border-color: var(--accent); }
+.btn-secondary {
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--fg);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-secondary:hover { background: var(--bg); border-color: var(--accent); color: var(--accent); }
+
+
+.chat-window{
+  max-width:960px;
+  margin:0 auto 24px;
+  padding:20px;
+}
+.card{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  padding:16px;
+  border-radius:18px;
+  border:1px solid var(--line);
+  background:var(--panel);
+  box-shadow: none;
+}
+.messages{
+  flex:1;
+  min-height:280px;
+  max-height:60vh;
+  overflow:auto;
+  border-radius:12px;
+  padding:16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+/* message row and bubble layout */
+.msg{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:10px;
+  margin: 12px 0;
+}
+.msg-row{display:block;padding:0;margin:0;width:100%}
+.msg-avatar{ display:none; }
+.msg-bubble{
+  display:block;
+  padding:12px 14px;
+  border-radius:10px;
+  color:var(--fg);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.03);
+  font-size:15px;
+  width:100%;
+  box-sizing:border-box;
+  word-wrap: break-word;
+}
+.msg.you .msg-bubble{
+  font-weight:600;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+/* default .msg.they styling intentionally blank (inherits panel style) */
+.msg-meta-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  width:100%;
+  margin-top:6px;
+  font-size:13px;
+}
+.msg-name{color:var(--muted);font-weight:700;font-size:13px}
+.msg-date{color:var(--muted);font-size:12px;text-align:right}
+
+/* subtle divider between messages on larger screens */
+.messages > .msg { border-radius: 8px; padding: 6px 0; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+.messages > .msg:last-child { border-bottom: none; padding-bottom: 0; }
+
+/* scrollbar polish */
+.messages::-webkit-scrollbar{width:10px;height:10px}
+.messages::-webkit-scrollbar-thumb{background:rgba(var(--accent-rgb),0.06);border-radius:8px;border:2px solid transparent;background-clip:content-box}
+.messages::-webkit-scrollbar-track{background:transparent}
+
+/* input area */
+.chat-input{
+  display:none; /* moved out to .chat-controls */
+}
+.chat-input-row{display:flex;align-items:center;gap:10px;width:100%}
+.chat-input-row.msg-row{padding:0}
+
+/* New message-preview textarea styled like a sent message bubble */
+.chat-preview textarea#msg{
+  width:100%;
+  resize:vertical;
+  min-height:48px;
+  max-height:160px;
+  padding:12px 14px;
+  border-radius:10px;
+  /* match the sent-message bubble appearance */
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.04);
+  color: var(--fg);
+  font-size:15px;
+  line-height:1.3;
+  box-sizing:border-box;
+  outline:none;
+}
+.chat-preview textarea#msg::placeholder{ color: var(--muted); }
+
+/* meta row below the textarea: name on the left, send on the right */
+.chat-meta-row{ display:flex; gap:12px; align-items:center; justify-content:space-between; width:100%; }
+.chat-meta-row .name-input{ flex:0 0 220px; padding:8px 12px; border-radius:999px; border:1px solid var(--line); background:var(--panel); color:var(--fg); font-weight:700; text-align:left; }
+.chat-meta-row button#send{ flex:0 0 92px; padding:8px 12px; border-radius:10px; border:1px solid var(--line); background:var(--panel); color:var(--muted); cursor:not-allowed; }
+.chat-meta-row button#send.enabled{ background:var(--fg); color:var(--bg); cursor:pointer; border-color:var(--fg); }
+
+.chat-meta-row .name-input:focus, .chat-preview textarea#msg:focus{ border-color: rgba(255,255,255,0.12); box-shadow:none }
+
+/* New controls placed below the chat card */
+.chat-controls{ max-width:960px; margin:12px auto 40px; padding:0 20px; display:flex; flex-direction:column; gap:8px; }
+/* ensure the preview looks like message bubbles in the chat */
+.chat-controls .chat-preview{ width:100%; }
+.chat-controls .chat-meta-row{ width:100%; }
+
+/* responsive tweaks */
+@media (max-width:640px){
+  .chat-window{ padding:12px; margin:12px auto; }
+  .messages{ min-height:180px; max-height:55vh; padding:8px; }
+  .msg-bubble{ max-width:92%; font-size:14px; padding:10px; }
+  .chat-meta-row .name-input{ display:none; } /* hide name field on small screens to save space */
+  .chat-meta-row button{ flex:0 0 76px; padding:8px 10px; }
+}

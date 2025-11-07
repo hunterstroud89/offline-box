@@ -1,0 +1,16 @@
+{
+    "id": "chat_2025-09-04_20-05-14_740aecec",
+    "title": "hello",
+    "messages": [
+        {
+            "role": "user",
+            "content": "hello"
+        },
+        {
+            "role": "assistant",
+            "content": "Hello. Is there something I can help you with or would you like to chat?"
+        }
+    ],
+    "created_at": "2025-09-04 20:05:53",
+    "updated_at": "2025-09-04 20:05:53"
+}

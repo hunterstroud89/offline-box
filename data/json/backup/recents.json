@@ -1,0 +1,7 @@
+[
+  { "name": "sample-document.pdf", "path": "/files/documents/sample-document.pdf", "size": "2.1 MB", "modified": "2025-08-30" },
+  { "name": "readme.md", "path": "/files/readme.md", "size": "1.2 KB", "modified": "2025-08-29" },
+  { "name": "vacation-photos.zip", "path": "/files/photos/vacation-photos.zip", "size": "45.7 MB", "modified": "2025-08-28" },
+  { "name": "project-notes.txt", "path": "/files/notes/project-notes.txt", "size": "856 bytes", "modified": "2025-08-27" },
+  { "name": "music-playlist.m3u", "path": "/files/music/music-playlist.m3u", "size": "3.4 KB", "modified": "2025-08-26" }
+]

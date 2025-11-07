@@ -1,0 +1,12 @@
+{
+    "id": "chat_2025-09-08_06-13-23_b49ac5c2",
+    "title": "Tell me an interesting fact about space",
+    "messages": [
+        {
+            "role": "user",
+            "content": "Tell me an interesting fact about space"
+        }
+    ],
+    "created_at": "2025-09-08 06:13:23",
+    "updated_at": "2025-09-08 06:13:23"
+}

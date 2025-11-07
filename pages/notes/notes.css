@@ -1,0 +1,327 @@
+/* Notes page styles — matching OfflineBox design system */
+:root{
+  --bg:#121212; --fg:#d0d0d0; --muted:#808080; --line:#2a2a2a; --panel:#242424; --accent:#c0c0c0; --accent-rgb:192,192,192;
+}
+
+html,body{height:100%;margin:0;font-family:system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;background:var(--bg);color:var(--fg)}
+.container{max-width:900px;margin:0 auto;padding:40px 24px}
+
+/* Hero card styling (match other pages) */
+.hero-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px}
+.hero-content{display:flex;align-items:flex-start;gap:12px}
+.hero-icon{flex-shrink:0;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent}
+.hero-text{flex:1}
+.hero-text h3{margin:0 0 6px 0;font-size:18px}
+.hero-text p{color:var(--muted)}
+.hero-actions{display:flex;gap:8px;margin-left:auto}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hero-btn:hover {
+  background: var(--line);
+  border-color: var(--accent);
+  color: var(--fg);
+}
+
+/* Section styling */
+.section{margin-bottom:40px}
+.section-header{display:flex;align-items:center;gap:12px;justify-content:flex-start;margin-bottom:8px}
+.section-title{font-size:24px;font-weight:600;margin:0 0 8px 0;color:var(--fg)}
+
+/* Editable title in header */
+.editable-title {
+  flex: 1;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--fg);
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  min-width: 0;
+}
+
+.editable-title:hover,
+.editable-title:focus {
+  background: var(--line);
+}
+
+.editable-title::placeholder {
+  color: var(--muted);
+}
+
+/* Back-link styling */
+.back-link {
+  margin-right: 10px;
+  transform: translateY(-4px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0;
+  background: transparent;
+  border: none;
+  transition: all 0.12s ease;
+  cursor: pointer;
+}
+.back-link:hover { color: var(--accent); }
+
+/* Header actions */
+.header-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Edit page styles */
+.edit-container {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--fg);
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--muted);
+}
+
+#note-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#note-content {
+  min-height: 400px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+/* Button styles */
+.btn-primary,
+.btn-secondary {
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: var(--line);
+  border-color: var(--line);
+  color: var(--muted);
+  cursor: default;
+}
+
+.btn-primary.enabled {
+  background: var(--fg);
+  border-color: var(--fg);
+  color: var(--bg);
+  cursor: pointer;
+}
+
+.btn-primary.enabled:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--fg);
+}
+
+.btn-secondary:hover {
+  background: var(--line);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Notes Grid */
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.note-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.note-card:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.note-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.note-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--fg);
+  flex: 1;
+  min-width: 0;
+  word-wrap: break-word;
+}
+
+.note-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.note-card:hover .note-actions {
+  opacity: 1;
+}
+
+.note-btn {
+  padding: 4px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.note-btn:hover {
+  background: var(--line);
+  color: var(--fg);
+}
+
+.note-btn.delete:hover {
+  background: rgba(255, 107, 107, 0.1);
+  color: #ff6b6b;
+}
+
+.note-content {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.note-meta {
+  border-top: 1px solid var(--line);
+  padding-top: 8px;
+}
+
+.note-date {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--muted);
+  grid-column: 1 / -1;
+}
+
+.empty-icon {
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.empty-state h3 {
+  margin: 0 0 8px 0;
+  color: var(--fg);
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .container { padding: 20px; }
+  .notes-grid {
+    grid-template-columns: 1fr;
+  }
+}

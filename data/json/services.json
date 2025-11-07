@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Kiwix",
+    "description": "Offline Wikipedia & Content Server",
+    "port": 8082,
+    "url": "http://offlinebox.local:8082"
+  },
+  {
+    "name": "Ollama",
+    "description": "Local AI Model Server", 
+    "port": 11434,
+    "url": "http://localhost:11434"
+  }
+]

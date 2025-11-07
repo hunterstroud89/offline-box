@@ -1,0 +1,12 @@
+{
+    "id": "chat_2025-09-05_03-07-44_0f93eab1",
+    "title": "hello friend",
+    "messages": [
+        {
+            "role": "user",
+            "content": "hello friend"
+        }
+    ],
+    "created_at": "2025-09-05 03:07:44",
+    "updated_at": "2025-09-05 03:07:44"
+}

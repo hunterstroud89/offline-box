@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Clean stroked gamepad icon (white stroke) -->
+  <!-- Body -->
+  <path d="M3 12c0-2.21 1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4H7c-2.21 0-4-1.79-4-4z" />
+  <!-- D-pad (left) as small dot -->
+  <circle cx="8.5" cy="11.5" r="0.6" fill="#ffffff" stroke="none" />
+  <!-- Action buttons (right) as small dots -->
+  <circle cx="16.5" cy="10.5" r="0.6" fill="#ffffff" stroke="none" />
+  <circle cx="18.5" cy="12.5" r="0.6" fill="#ffffff" stroke="none" />
+</svg>

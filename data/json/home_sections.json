@@ -1,0 +1,17 @@
+[
+    {
+        "key": "hero",
+        "visible": true,
+        "order": 1
+    },
+    {
+        "key": "favorites",
+        "visible": true,
+        "order": 2
+    },
+    {
+        "key": "recent_files",
+        "visible": true,
+        "order": 3
+    }
+]

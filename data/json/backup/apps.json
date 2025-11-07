@@ -1,0 +1,58 @@
+[
+    {
+        "id": "home",
+        "label": "Home",
+        "icon": "\/data\/icons\/home.png",
+        "url": "\/pages\/home\/home.php",
+        "visible": false
+    },
+    {
+        "id": "simplefiles",
+        "label": "simple-files",
+        "icon": "\/data\/icons\/files.svg",
+        "url": "\/pages\/simple-files\/simple-files.php",
+        "visible": false
+    },
+    {
+        "id": "kiwix",
+        "label": "Wikipedia",
+        "icon": "\/data\/icons\/wiki.png",
+        "url": "http:\/\/localhost:8082",
+        "visible": true
+    },
+    {
+        "id": "Offline-Chat",
+        "label": "Chat",
+        "icon": "\/data\/icons\/chat.png",
+        "url": "\/pages\/chat\/chat.php",
+        "visible": true
+    },
+    {
+        "id": "files",
+        "label": "Files",
+        "icon": "\/data\/icons\/files.svg",
+        "url": "\/pages\/files\/files.php",
+        "visible": false
+    },
+    {
+        "id": "games",
+        "label": "games",
+        "icon": "\/data\/icons\/games.png",
+        "url": "\/pages\/games\/games.php",
+        "visible": true
+    },
+    {
+        "id": "portainermini",
+        "label": "Portainer-Mini",
+        "icon": "\/data\/icons\/portainer.png",
+        "url": "https:\/\/10.0.0.224:9443",
+        "visible": true
+    },
+    {
+        "id": "admin",
+        "label": "Admin",
+        "icon": "\/data\/icons\/admin.png",
+        "url": "\/pages\/admin\/admin.php",
+        "visible": true
+    }
+]

@@ -1,0 +1,145 @@
+/* Games page styles — exactly matching files page structure */
+:root{
+  --bg:#121212; --fg:#d0d0d0; --muted:#808080; --line:#2a2a2a; --panel:#242424; --accent:#c0c0c0; --accent-rgb:192,192,192;
+}
+html,body{height:100%;margin:0;font-family:system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;background:var(--bg);color:var(--fg)}
+.container{max-width:900px;margin:0 auto;padding:40px 24px}
+.hero-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px}
+.hero-content{display:flex;align-items:flex-start;gap:12px}
+.hero-icon{flex-shrink:0;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent}
+.hero-text{flex:1}
+.hero-text h3{margin:0 0 6px 0;font-size:18px}
+.hero-text p{color:var(--muted)}
+.hero-actions{display:flex;gap:8px;margin-left:auto}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.hero-btn:hover {
+  background: var(--line);
+  border-color: var(--accent);
+  color: var(--fg);
+}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:22px}
+.list{list-style:none;margin:0;padding:0}
+.list .item{display:flex;justify-content:space-between;align-items:center;padding:8px 6px;border-bottom:1px solid var(--line)}
+.list .item:last-child{border-bottom:none}
+.list .item a{color:var(--fg);text-decoration:none}
+.list .item a:hover{color:var(--accent)}
+.list .item .meta{color:var(--muted);font-size:12px;margin-left:12px}
+.muted{color:var(--muted)}
+
+/* Section header spacing to match other pages */
+.section{margin-bottom:40px}
+.section-header{display:flex;align-items:center;gap:12px;justify-content:flex-start;margin-bottom:8px}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-title{font-size:24px;font-weight:600;margin:0 0 8px 0;color:var(--fg)}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 8px;
+  background: transparent;
+  border: none;
+  transition: all 0.12s ease;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-right: 4px;
+}
+.back-link:hover { 
+  color: var(--accent); 
+  background: rgba(var(--accent-rgb), 0.06);
+}
+
+@media (max-width:640px){.container{padding:20px}}
+
+/* Games-specific styling */
+.favorites-grid{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+.favorite-item{display:inline-flex;flex-direction:column;align-items:center;width:84px;margin:8px;text-decoration:none;color:var(--fg)}
+.favorite-icon{width:64px;height:64px;border-radius:10px;background:var(--panel);display:flex;align-items:center;justify-content:center;margin-bottom:6px;border:1px solid rgba(255,255,255,0.06)}
+.favorite-img{width:48px;height:48px;object-fit:contain}
+.favorite-label{font-size:12px;color:var(--muted);text-align:center;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* Filters row styling */
+.filters-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.filters-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+/* Favorites grid (games) */
+.favorites-grid{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+.favorite-item{display:inline-flex;flex-direction:column;align-items:center;width:84px;margin:8px;text-decoration:none;color:var(--fg)}
+.favorite-icon{width:64px;height:64px;border-radius:10px;background:var(--panel);display:flex;align-items:center;justify-content:center;margin-bottom:6px;border:1px solid rgba(255,255,255,0.06)}
+.favorite-img{width:48px;height:48px;object-fit:contain}
+.favorite-label{font-size:12px;color:var(--muted);text-align:center;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:22px}
+
+/* Recent files list */
+
+.hero-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+@media (max-width:640px){.container{padding:20px}}
+#recent{margin-top:12px}
+#recent > div{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+#recent > div:last-child{border-bottom:none}
+#recent > div span:last-child{color:var(--muted);font-size:13px}
+
+/* Filters */
+.hero-actions{display:flex;gap:8px;align-items:center}
+.hero-actions select,.hero-actions button{padding:8px;border-radius:6px;border:1px solid var(--line);background:var(--panel);color:var(--fg)}
+
+/* allow hero-card to host top-right header actions like other pages */
+.hero-card{ position: relative; }
+.hero-card .header-actions { position: absolute; top: 12px; right: 12px; display:flex; gap:8px; align-items:center; }
+
+/* Filters row sits outside the hero card; label left, controls right */
+.filters-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.filters-row .filters-label {
+  color: var(--muted);
+}
+
+.filters-row .hero-actions {
+  margin-left: auto;
+}
+
+@media (max-width:640px){.container{padding:20px}.favorite-item{width:72px}.favorite-label{font-size:11px}}

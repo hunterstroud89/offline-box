@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="snesGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f0f0"/>
+      <stop offset="100%" style="stop-color:#d0d0d0"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="url(#snesGrad)" stroke="#aaa" stroke-width="1"/>
+  <rect x="8" y="16" width="48" height="6" rx="3" fill="#444"/>
+  <rect x="12" y="30" width="6" height="6" rx="1" fill="#555"/>
+  <rect x="22" y="30" width="6" height="6" rx="1" fill="#555"/>
+  <circle cx="42" cy="33" r="3" fill="#4169E1" stroke="#2E4BC7" stroke-width="1"/>
+  <circle cx="50" cy="33" r="3" fill="#32CD32" stroke="#228B22" stroke-width="1"/>
+  <circle cx="46" cy="29" r="3" fill="#FFD700" stroke="#DAA520" stroke-width="1"/>
+  <circle cx="46" cy="37" r="3" fill="#DC143C" stroke="#B22222" stroke-width="1"/>
+  <text x="32" y="52" font-family="Arial, sans-serif" font-size="7" text-anchor="middle" fill="#333">SNES</text>
+</svg>
